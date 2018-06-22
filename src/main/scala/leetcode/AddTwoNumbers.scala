@@ -35,6 +35,8 @@ object AddTwoNumbers extends App {
 
   }
 
+  val zeroNode = new ListNode(0)
+
   @tailrec
   def addTwoNumbersHelper(l1: ListNode,
                                    l2: ListNode,
@@ -65,7 +67,7 @@ object AddTwoNumbers extends App {
       if(l1.next != null && l2.next == null) {
         addTwoNumbersHelper(
           l1.next,
-          new ListNode(0),
+          zeroNode,
           {
             if(accLastPoint == null) newListNode
             else {
@@ -78,7 +80,7 @@ object AddTwoNumbers extends App {
         )
       } else if(l2.next != null && l1.next == null) {
         addTwoNumbersHelper(
-          new ListNode(0),
+          zeroNode,
           l2.next,
           {
             if(accLastPoint == null) newListNode
