@@ -8,19 +8,29 @@ package codinginterviews
 object Number2String extends App {
 
   /**
+    * todo: print every case
     * every src Int item is [0, 9]
     */
   def count(src: Seq[Int]): Int = {
     src match {
+      case Nil =>
+        0
       case _ :: Nil =>
         1
       case first :: (group @ second :: other) =>
         val one = {
-          count(first :: Nil) * count(group)
+          1 * count(group)
         }
 
         val two = if (first * 10 + second <= 25) {
-          count(first * 10 + second :: Nil) * count(other)
+          1 * {
+            other match {
+              case Nil =>
+                1
+              case _ =>
+                count(other)
+            }
+          }
         } else {
           0
         }
@@ -30,5 +40,10 @@ object Number2String extends App {
   }
 
   assert(count(List(1,2,2,5,8)) == 5)
+  assert(count(List(1)) == 1)
+  assert(count(List(1,2)) == 2)
+  assert(count(List(1,2,9)) == 2)
+  assert(count(List(1,2,3)) == 3)
+  assert(count(List()) == 0)
 
 }
