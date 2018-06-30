@@ -16,10 +16,11 @@ object Number2String extends App {
         1
       case first :: (group @ second :: other) =>
         val one = {
-          count(group)
+          count(first :: Nil) * count(group)
         }
+
         val two = if (first * 10 + second <= 25) {
-          count(other)
+          count(first * 10 + second :: Nil) * count(other)
         } else {
           0
         }
