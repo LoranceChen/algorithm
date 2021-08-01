@@ -1,5 +1,7 @@
 package niuke
 
+import scala.annotation.tailrec
+
 object ReverseList {
   def main(args: Array[String]): Unit = {
     val a = ListNode(1)
@@ -21,6 +23,7 @@ object ReverseList {
     reverseListHelper(head, null)
   }
 
+  @tailrec
   def reverseListHelper(head: ListNode, former: ListNode): ListNode = {
     // write code here
     if(head == null) {
@@ -34,4 +37,5 @@ object ReverseList {
       reverseListHelper(next, head)
     }
   }
+
 }
