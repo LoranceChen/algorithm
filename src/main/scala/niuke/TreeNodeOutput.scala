@@ -2,11 +2,7 @@ package niuke
 
 import collection.mutable.ArrayBuffer
 
-class TreeNode(var `val`: Int) {
-   var left: TreeNode = null
-   var right: TreeNode = null
-}
-
+case class TreeNode(var `val`: Int, var left: TreeNode = null, var right: TreeNode = null)
 
 object TreeNodeOutput {
   def main(args: Array[String]): Unit = {
