@@ -11,7 +11,7 @@ object TopK {
 
   /**
     * 代码中的类名、方法名、参数名已经指定，请勿修改，直接返回方法规定的值即可
-    *
+    * 找出最大的k个数（构造小顶堆，但不需要排序）
     * @param input int整型一维数组
     * @param k int整型
     * @return int整型一维数组
@@ -44,6 +44,7 @@ object TopK {
     }
   }
 
+  // 对当前指定的index所在的非叶子节点做下沉替换。保证该节点及所有子节点是小顶堆
   def adjust(arr: Array[Int], len: Int, index: Int): Unit = {
     val left = 2 * index + 1
     val right = 2 * index + 2
