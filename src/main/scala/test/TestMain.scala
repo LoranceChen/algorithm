@@ -7,7 +7,7 @@ object TestMain {
       println(item)
     })
 
-    println(lst.drop(1))
+    println(s"drop： ${lst.drop(1)}")
     val lsts = List(List(1,2,3), List(4,5,6))
     val flatMaped = lsts.flatMap(a => a)
     println(flatMaped)
